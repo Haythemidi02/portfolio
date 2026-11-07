@@ -1,6 +1,6 @@
 export const profile = {
   name: 'Haythem Idi', email: 'haythem.idi@ensi-uma.tn',
-  github: 'https://github.com/Haythemidi02', linkedin: 'https://www.linkedin.com/in/haythem-idi',
+  github: 'https://github.com/Haythemidi02', linkedin: 'https://www.linkedin.com/in/haythem-idi-706b2b363/',
 };
 export const pair = (en, fr) => ({ en, fr });
 export const projects = [
