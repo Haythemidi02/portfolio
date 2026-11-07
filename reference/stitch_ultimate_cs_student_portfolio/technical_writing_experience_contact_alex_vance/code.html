@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Alex Vance | Distributed Systems &amp; ML Infrastructure</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"surface-variant":"#32353d","surface-container-lowest":"#0b0e15","on-secondary-container":"#b0b2ff","tertiary-fixed":"#6ffbbe","on-primary-container":"#003751","tertiary":"#4edea3","surface-container":"#1d1f27","surface-container-high":"#272a32","secondary-fixed-dim":"#c0c1ff","error":"#ffb4ab","on-primary-fixed-variant":"#004c6e","secondary-container":"#3131c0","surface-bright":"#363941","primary-fixed-dim":"#89ceff","background":"#10131a","on-primary":"#00344d","surface-tint":"#89ceff","on-tertiary":"#003824","on-secondary-fixed-variant":"#2f2ebe","tertiary-container":"#00b17b","surface-container-low":"#191b23","on-tertiary-container":"#003b26","surface":"#10131a","inverse-primary":"#006591","surface-container-highest":"#32353d","secondary":"#c0c1ff","on-surface-variant":"#bec8d2","on-surface":"#e1e2ec","on-primary-fixed":"#001e2f","primary-fixed":"#c9e6ff","secondary-fixed":"#e1e0ff","inverse-surface":"#e1e2ec","on-error-container":"#ffdad6","tertiary-fixed-dim":"#4edea3","on-tertiary-fixed-variant":"#005236","error-container":"#93000a","on-tertiary-fixed":"#002113","surface-dim":"#10131a","primary":"#89ceff","on-background":"#e1e2ec","on-secondary-fixed":"#07006c","on-error":"#690005","on-secondary":"#1000a9","outline-variant":"#3e4850","outline":"#88929b","inverse-on-surface":"#2d3038","primary-container":"#0ea5e9"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter":"1.5rem","space-xs":"0.25rem","gutter-mobile":"1rem","space-lg":"1.5rem","space-md":"1rem","margin-mobile":"1.25rem","space-xl":"2.5rem","margin":"3rem","space-sm":"0.5rem"},"fontFamily":{"code-inline":["JetBrains Mono"],"headline-md":["Plus Jakarta Sans"],"tech-badge":["JetBrains Mono"],"code-block":["JetBrains Mono"],"metric-stat":["JetBrains Mono"],"headline-sm":["Plus Jakarta Sans"],"display-hero":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"display-hero-mobile":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-mono":["JetBrains Mono"],"body-md":["Plus Jakarta Sans"]},"fontSize":{"code-inline":["12px",{"lineHeight":"16px","fontWeight":"500"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"tech-badge":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"code-block":["13px",{"lineHeight":"20px","fontWeight":"400"}],"metric-stat":["28px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-hero":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"800"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.025em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"400"}],"display-hero-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"800"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"label-mono":["10px",{"lineHeight":"12px","letterSpacing":"0.08em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md shrink-0"><a class="flex items-center gap-space-sm group" data-path="projects" href="#"><img alt="CS Portfolio Engineering Monogram" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrDirXsoseeamOCiBPtzycI2G5ptbX8lHoLPtVboXuyee0dNe3p5Ho_T5uBISycG3YQOCg8NJI9_4fEDllmsDn0L9As8OUyIJIrl76D3T9lYHMy67CHMHitkNFz1JiZPEy73VdTOLG8Z3eZC6HEhx1WWugqtmt8NO2G2BPZZN-hjp9E-d6iCKC3Ua-U_ZKXgR6PornV9RMPp_bKqHvjb4f0LtP_Vz2rJ7xb8gatEfyxL"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors tracking-tight">Alex Vance</span><span class="font-label-mono text-label-mono text-on-surface-variant hidden sm:block">SYS • ML INFRA</span></div></a><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high/60"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="font-label-mono text-label-mono text-tertiary tracking-wide">Available Fall 2025 / 2026 SWE &amp; ML</span></div></div><nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-headline-sm"><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="projects" href="#">Projects</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="deep-dives" href="#">Deep Dives</a><a aria-current="page" class="transition-colors text-primary font-headline-sm" data-path="technical-writing" href="#">Technical Writing</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="about-and-experience" href="#">About &amp; Experience</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-space-sm shrink-0"><div class="hidden sm:flex items-center p-0.5 rounded-full bg-surface-container-high"><button class="px-2 py-0.5 rounded-full font-label-mono text-label-mono text-on-primary bg-primary shadow-sm" type="button">EN</button><button class="px-2 py-0.5 rounded-full font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-colors" type="button">FR</button></div><button aria-label="Toggle UI theme" class="p-1.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[18px]">light_mode</span></button><a aria-label="Alex Vance GitHub repositories" class="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" href="https://github.com" rel="noreferrer" target="_blank"><span class="material-symbols-outlined text-[18px]">code</span><span class="font-label-mono text-label-mono text-primary font-semibold">★ 142</span></a><a aria-label="Alex Vance LinkedIn Profile" class="hidden sm:flex p-1.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors items-center justify-center" href="https://linkedin.com" rel="noreferrer" target="_blank"><span class="material-symbols-outlined text-[18px]">share</span></a><a class="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-primary hover:bg-primary-container text-on-primary transition-all shadow-[0_0_20px_-3px_rgba(14,165,233,0.3)]" data-path="contact" href="#"><span class="material-symbols-outlined text-[18px]">download</span><span class="font-body-sm text-body-sm font-semibold">Résumé (PDF)</span></a><div class="relative flex items-center pl-1"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi5WcDcvTMt4dhhSJb1kT2OGBBpILEv3AKTJCRClglUuPwrhPRAmIC4ma7IpVw8HdRJZWhe_pMY6IXZyCeQdZ_Zurjk2xv3WZoUGXys78j2nXeSnBBUMhM7YidaHsB8Ua4W--CVjHh5Ig5Z4F5Kk6LSZUiDHfkhLybJa_vNMpuyejolV7Xn4PFfReLLpL1FIgrSgYX2f2SBOM-izw6Npd_OgRm_0hsTCZCuR3WV7z8"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary ring-2 ring-surface"></span></div></div></div></header><main class="w-full pt-16 bg-surface flex-1"><div class="flex flex-col w-full">
+<div class="max-w-7xl mx-auto w-full px-6 lg:px-12 py-space-xl flex flex-col gap-margin">
+<!-- Top Metadata Status Row & Editorial Subheader -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-label-mono text-label-mono text-primary uppercase">ARCHIVAL NOTEBOOK // 0x4F</span>
+<span class="font-label-mono text-label-mono text-outline">UPDATED OCT 2024</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Engineering Writings &amp; Operational Dossier</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Writing on low-latency systems programming, distributed consensus edge cases, and hardware-aware machine learning runtimes.</p>
+</div>
+<div class="flex items-center gap-space-md shrink-0 bg-surface-container-low p-space-sm rounded-xl">
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-outline">SYSTEM CONTEXT</span>
+<span class="font-tech-badge text-tech-badge text-tertiary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+            Linearizable Read Engine
+          </span>
+</div>
+<div class="h-8 w-px bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-outline">INDEX READ P99</span>
+<span class="font-code-inline text-code-inline text-primary">0.42 ms</span>
+</div>
+</div>
+</div>
+<!-- Section 1: Technical Articles & Engineering Notes -->
+<section class="flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">terminal</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Technical Publications</h2>
+</div>
+<span class="font-label-mono text-label-mono text-outline hidden sm:block">3 SELECTED ESSAYS • 41 MIN TOTAL READ</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-stretch">
+<!-- Article 1 (Primary Deep Dive - 8 cols) -->
+<article class="lg:col-span-8 flex flex-col justify-between bg-surface-container-low rounded-xl p-space-lg hover:bg-surface-container transition-all group">
+<div class="flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-tech-badge text-tech-badge">Distributed Systems</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono">Rust 1.78</span>
+</div>
+<div class="flex items-center gap-space-sm text-outline font-label-mono text-label-mono">
+<span>14 min read</span>
+<span>•</span>
+<span class="text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 12k on HN
+                </span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                Understanding Raft Linearizable Reads: LeaseRead vs. ReadIndex
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                A rigorous exploration of how network partitions and split-brain scenarios yield silent stale reads in standard Raft topologies. We contrast the physical hazard of clock drift under LeaseRead against the consensus round-trip guarantees of ReadIndex, demonstrating how we implemented a zero-overhead ReadIndex queue in asynchronous Rust.
+              </p>
+</div>
+<!-- Architectural Latency Visualizer -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between text-outline font-label-mono text-label-mono">
+<span>READ PATH LATENCY COMPARISON</span>
+<span class="text-primary font-code-inline text-code-inline">BENCH: 100K OPS/SEC</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-mono text-label-mono">
+<span class="text-on-surface-variant">LeaseRead (Bounded Clock)</span>
+<span class="text-tertiary">0.08ms</span>
+</div>
+<div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[16%]"></div>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Risk: Monotonic clock desynchronization</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-mono text-label-mono">
+<span class="text-on-surface-variant">ReadIndex (Heartbeat Quorum)</span>
+<span class="text-primary">0.42ms</span>
+</div>
+<div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[48%]"></div>
+</div>
+<span class="font-body-sm text-body-sm text-tertiary">Safe: Strict Linearizability guaranteed</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-lg">
+<span class="font-code-inline text-code-inline text-outline">commit: 8f2c31e • raft/read_index.rs</span>
+<a class="inline-flex items-center gap-1.5 text-primary group-hover:text-primary-container font-headline-sm text-headline-sm transition-colors" href="#">
+<span>Read Full Breakdown</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Article 2 (InfoQ Feature - 4 cols) -->
+<article class="lg:col-span-4 flex flex-col justify-between bg-surface-container-low rounded-xl p-space-lg hover:bg-surface-container transition-all group">
+<div class="flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-tech-badge text-tech-badge">Systems &amp; Perf</span>
+<span class="font-label-mono text-label-mono text-outline">9 min read</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-mono text-label-mono text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">award_star</span> FEATURED ON INFOQ
+              </span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                Why We Replaced Redis with a Custom In-Memory Ring Buffer
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Analyzing how JSON serialization overhead and Linux kernel socket context shifts choked our telemetry ingress. We engineered a cache-line padded circular ring buffer using atomic CAS operations, eliminating cross-core false sharing and boosting ingestion by 6x.
+              </p>
+</div>
+<!-- Throughput Ratio Diagram -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-outline">INGESTION THROUGHPUT</span>
+<span class="font-metric-stat text-metric-stat text-primary">+585%</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-mono text-label-mono text-outline">ALLOCATION RATE</span>
+<span class="font-metric-stat text-metric-stat text-tertiary">0 B/req</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md">
+<a class="inline-flex items-center gap-1.5 text-primary group-hover:text-primary-container font-body-md text-body-md font-semibold transition-colors" href="#">
+<span>Inspect Memory Layout</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Article 3 (GPU Systems - Full width horizontal card) -->
+<article class="lg:col-span-12 flex flex-col md:flex-row justify-between gap-space-lg bg-surface-container-low rounded-xl p-space-lg hover:bg-surface-container transition-all group">
+<div class="flex flex-col gap-space-sm max-w-3xl">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-tech-badge text-tech-badge">Machine Learning Systems</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono">CUDA / Triton</span>
+<span class="font-label-mono text-label-mono text-outline">18 min read</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+              Profiling Triton GPU Kernels with Nsight Compute: A Practical Guide
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Transitioning from PyTorch eager execution to hand-fused custom kernels often introduces shared memory bank conflicts and uncoalesced global memory transactions. This guide walks through configuring NCU profiling counters, interpreting warp occupancy cliffs, and tuning block tile dimensions for Ampere/Hopper architectures.
+            </p>
+</div>
+<div class="flex flex-col sm:flex-row md:flex-col justify-between items-start md:items-end gap-space-md shrink-0">
+<div class="flex flex-col md:items-end">
+<span class="font-label-mono text-label-mono text-outline">TARGET ACCELERATOR</span>
+<span class="font-code-inline text-code-inline text-on-surface">NVIDIA H100 SXM5 / SM90</span>
+</div>
+<a class="px-space-md py-space-sm rounded-xl bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary font-body-sm text-body-sm font-semibold transition-all inline-flex items-center gap-1.5 shadow-sm" href="#">
+<span>Read Article &amp; Profiler Traces</span>
+<span class="material-symbols-outlined text-[16px]">file_open</span>
+</a>
+</div>
+</article>
+</div>
+</section>
+<!-- Section 2: Experience & Academic Background -->
+<section class="flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">account_tree</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Academic Pedigree &amp; Track Record</h2>
+</div>
+<span class="font-label-mono text-label-mono text-tertiary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+          VERIFIED TRANSCRIPT &amp; CODEBASE
+        </span>
+</div>
+<!-- Bento Grid for Experience & Education -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Education Card (5 cols) -->
+<div class="lg:col-span-5 flex flex-col justify-between bg-surface-container-low rounded-xl p-space-lg">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-mono text-label-mono">HONORS B.S.</span>
+<span class="font-metric-stat text-metric-stat text-on-surface">3.92 <span class="text-body-sm font-label-mono text-outline">/ 4.0 GPA</span></span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">University of Waterloo / UC Berkeley</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">B.S. in Computer Science (Honors), Minor in Statistics</p>
+<p class="font-label-mono text-label-mono text-outline">Joint Exchange • Class of 2025</p>
+</div>
+<!-- Coursework Chips -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<span class="font-label-mono text-label-mono text-outline">RIGOROUS SYSTEMS COURSEWORK</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface-variant font-tech-badge text-tech-badge">CS 454: Distributed Systems</span>
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface-variant font-tech-badge text-tech-badge">CS 350: Operating Systems</span>
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface-variant font-tech-badge text-tech-badge">ML Systems (EECS 280)</span>
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface-variant font-tech-badge text-tech-badge">Compilers (CS 444)</span>
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface-variant font-tech-badge text-tech-badge">Computer Architecture</span>
+</div>
+</div>
+</div>
+<!-- Academic Honors / Dean's list badge -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex items-center gap-space-sm mt-space-md">
+<span class="material-symbols-outlined text-tertiary text-[20px]">verified</span>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-on-surface">FACULTY DISTINCTION &amp; SCHOLARSHIP</span>
+<span class="font-body-sm text-body-sm text-outline">Dean's Honors List all terms; René Descartes Scholarship recipient</span>
+</div>
+</div>
+</div>
+<!-- Experience Timeline (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md bg-surface-container-low rounded-xl p-space-lg">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono text-outline">PROFESSIONAL TIMELINE</span>
+<span class="font-code-inline text-code-inline text-on-surface-variant">KERNEL • RUNTIMES • PROTOCOLS</span>
+</div>
+<div class="flex flex-col gap-space-lg">
+<!-- Item 1: Cloud Infra Internship -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<div class="flex items-center gap-space-sm">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Systems Software Engineering Intern</h4>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-tech-badge text-tech-badge">Cloud Infra Startup</span>
+</div>
+<span class="font-label-mono text-label-mono text-outline">MAY 2024 — AUG 2024</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Optimized distributed state machine replication pipelines using Raft. Rewrote the socket batching layer using eBPF and XDP drivers, reducing cross-datacenter message processing variance by 34% at 100k QPS. Authored high-performance zero-copy buffer serialization routines in Rust.
+              </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-inline text-code-inline">eBPF / XDP</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-inline text-code-inline">Rust</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-inline text-code-inline">Linux perf</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-inline text-code-inline">Raft Consensus</span>
+</div>
+</div>
+<!-- Item 2: Systems & Networking Lab -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<div class="flex items-center gap-space-sm">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Undergraduate Research Assistant</h4>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-tech-badge text-tech-badge">SysNet Lab</span>
+</div>
+<span class="font-label-mono text-label-mono text-outline">SEPT 2023 — PRESENT</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Benchmarking Byzantine Fault-Tolerant (BFT) consensus algorithms under adversarial WAN latency conditions. Built a simulated network chaos testing framework in C++ that injects jitter and Byzantine message corruptions to measure quorum failover degradation.
+              </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-inline text-code-inline">C++20</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-inline text-code-inline">BFT Protocols</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-inline text-code-inline">tc / NetEm</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-inline text-code-inline">Distributed Simulation</span>
+</div>
+</div>
+<!-- Item 3: OSS -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<div class="flex items-center gap-space-sm">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Open Source Contributor &amp; Maintainer</h4>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-tech-badge text-tech-badge">Ecosystem</span>
+</div>
+<span class="font-label-mono text-label-mono text-outline">ONGOING</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Active maintainer and patch submitter across the asynchronous Rust ecosystem (tokio-util) and vLLM attention kernel dispatch paths. Authored SIMD-vectorized decode utilities that trimmed memory bandwidth consumption on batch generation requests.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Résumé Quick-View & Download Card -->
+<section class="bg-gradient-to-r from-surface-container-low via-surface-container to-surface-container-low rounded-xl p-space-lg flex flex-col md:flex-row items-center justify-between gap-space-lg shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[28px]">description</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Alex_Vance_Resume_2025.pdf</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-outline font-label-mono text-label-mono">OCT 2024 • 84 KB</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Comprehensive engineering resume formatted specifically for technical interviewers, founders, and engineering managers.</p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm shrink-0 w-full md:w-auto">
+<button class="flex-1 md:flex-initial px-space-md py-space-sm rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-sm text-body-sm font-semibold transition-colors flex items-center justify-center gap-2" id="view-resume-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+<span>View Web Résumé</span>
+</button>
+<a class="flex-1 md:flex-initial px-space-md py-space-sm rounded-xl bg-primary hover:bg-primary-container text-on-primary font-body-sm text-body-sm font-semibold transition-all shadow-md flex items-center justify-center gap-2" href="#download">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Download PDF</span>
+</a>
+</div>
+</section>
+<!-- Section 4: Interactive Contact & Direct Channels -->
+<section class="flex flex-col gap-space-lg" id="contact-portal">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">satellite_alt</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Direct Engineering Channels</h2>
+</div>
+<span class="font-label-mono text-label-mono text-tertiary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+          ACCEPTING FALL 2025 / 2026 ENGAGEMENTS
+        </span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Direct Info & Verification (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md bg-surface-container-low rounded-xl p-space-lg">
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Security &amp; Direct Relays</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Prefer encrypted communication for proprietary or technical inquiries. University relays monitored with sub-24h turnaround.</p>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Email -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[18px]">mail</span>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-outline">PRIMARY UNIVERSITY INBOX</span>
+<a class="font-code-inline text-code-inline text-primary hover:underline" href="mailto:a.vance@uwaterloo.ca">a.vance@uwaterloo.ca</a>
+</div>
+</div>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-outline hover:text-on-surface transition-colors" onclick="navigator.clipboard.writeText('a.vance@uwaterloo.ca')" title="Copy Email">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+<!-- GPG Key Fingerprint -->
+<div class="flex flex-col gap-1 p-space-sm rounded-lg bg-surface-container">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-outline text-[18px]">key</span>
+<span class="font-label-mono text-label-mono text-outline">PGP FINGERPRINT</span>
+</div>
+<a class="font-label-mono text-label-mono text-tertiary hover:underline" href="#pgp-download">Download .asc</a>
+</div>
+<code class="font-code-inline text-code-inline text-on-surface tracking-wider bg-surface-container-lowest px-2 py-1 rounded">
+                4A8F B129 90DE 31C2 EA07 8821 7B09 F021
+              </code>
+</div>
+<!-- Cal.com 20-min scheduling link -->
+<a class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors group" href="https://cal.com" rel="noreferrer" target="_blank">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">calendar_today</span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface group-hover:text-primary transition-colors">Schedule Technical Sync</span>
+<span class="font-label-mono text-label-mono text-outline">20-min Cal.com video link</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary text-[18px]">open_in_new</span>
+</a>
+<!-- Social Handles -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<a class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors" href="https://github.com" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-outline text-[18px]">code</span>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-outline">GITHUB</span>
+<span class="font-tech-badge text-tech-badge text-on-surface">@avance-sys</span>
+</div>
+</a>
+<a class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors" href="https://linkedin.com" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-outline text-[18px]">share</span>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-outline">LINKEDIN</span>
+<span class="font-tech-badge text-tech-badge text-on-surface">/in/alex-vance</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<!-- Right Column: Interactive Dispatch Message Form (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Transmit Message</h3>
+<span class="font-label-mono text-label-mono text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+              TYPICALLY RESPONDS &lt; 24H
+            </span>
+</div>
+<form class="flex flex-col gap-space-md" id="contact-form" onsubmit="event.preventDefault(); handleSubmitForm();">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-mono text-label-mono text-outline uppercase" for="contact-name">Your Name / Title</label>
+<input class="px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface placeholder:text-outline font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary" id="contact-name" placeholder="e.g. Elena Rostova, Staff SWE" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-mono text-label-mono text-outline uppercase" for="contact-email">Direct Email</label>
+<input class="px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface placeholder:text-outline font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary" id="contact-email" placeholder="elena@infrastructure.internal" required="" type="email"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-mono text-label-mono text-outline uppercase" for="contact-role">Inquiry Classification</label>
+<select class="px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary" id="contact-role">
+<option value="swe-fulltime">Full-Time SWE / ML Infra Role (2025/2026)</option>
+<option value="internship">Systems / Systems ML Internship</option>
+<option value="research">Academic / Research Collaboration</option>
+<option value="opensource">Open Source Contribution &amp; Architecture</option>
+<option value="other">General Technical Discussion</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-mono text-label-mono text-outline uppercase" for="contact-msg">Message Body / Scope</label>
+<textarea class="px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface placeholder:text-outline font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary resize-none" id="contact-msg" placeholder="Details on team, technical challenges, technology stack, or research topics..." required="" rows="4"></textarea>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-2 text-outline font-label-mono text-label-mono">
+<span class="material-symbols-outlined text-[16px] text-tertiary">lock</span>
+<span>End-to-end encrypted packet dispatch</span>
+</div>
+<button class="px-space-lg py-space-sm rounded-xl bg-primary hover:bg-primary-container text-on-primary font-body-md text-body-md font-semibold transition-all shadow-md flex items-center justify-center gap-2 shrink-0" id="submit-btn" type="submit">
+<span>Dispatch Message</span>
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+<div class="hidden p-space-sm rounded-lg bg-tertiary-container/30 text-tertiary font-body-sm text-body-sm flex items-center gap-2" id="form-success">
+<span class="material-symbols-outlined text-[18px]">task_alt</span>
+<span>Message encrypted and queued successfully. Expect a response in your inbox shortly.</span>
+</div>
+</form>
+</div>
+</div>
+</section>
+</div>
+<!-- Résumé Modal Overlay (Web Résumé Quick-View) -->
+<div class="fixed inset-0 z-50 bg-background/80 backdrop-blur-md hidden items-center justify-center p-4" id="resume-modal">
+<div class="bg-surface-container-low max-w-3xl w-full rounded-xl p-space-lg max-h-[870px] overflow-y-auto flex flex-col gap-space-md shadow-2xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">terminal</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Alex Vance — Curated Curriculum Vitae</h3>
+</div>
+<button class="p-1 rounded bg-surface-container text-outline hover:text-on-surface transition-colors" id="close-resume-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<div class="p-space-sm rounded bg-surface-container-lowest font-code-inline text-code-inline text-outline flex items-center justify-between">
+<span>SOURCE: static/cv/vance_cv_oct2024.md</span>
+<span class="text-tertiary">RENDER: PASSED</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Summary &amp; Engineering Focus</h4>
+<p>Aspiring low-latency systems and ML infrastructure software engineer. Deep expertise in distributed consensus (Raft, Paxos, BFT), high-throughput message streaming architectures, cache-line-aware systems programming in Rust and C++20, and GPU kernel optimization via Triton and CUDA.</p>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Core Systems Competencies</h4>
+<p class="font-code-inline text-code-inline text-primary">Languages: Rust, C++, C, Python, Go, x86-64 ASM, SQL</p>
+<p class="font-code-inline text-code-inline text-primary">Systems Tech: Linux eBPF/XDP, Tokio, CUDA, Triton, Apache Kafka, gRPC, Docker, Kube</p>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Education Credentials</h4>
+<p>University of Waterloo / UC Berkeley • B.S. in Computer Science (Honors), Minor in Statistics. GPA: 3.92 / 4.0.</p>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-sm">
+<button class="px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm" id="close-resume-bottom-btn" type="button">Close</button>
+<a class="px-space-md py-space-sm rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-semibold flex items-center gap-1.5" href="#download">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span>Download PDF Version</span>
+</a>
+</div>
+</div>
+</div>
+<script>
+    // Résumé Modal Control
+    const modal = document.getElementById('resume-modal');
+    const openBtn = document.getElementById('view-resume-btn');
+    const closeBtn = document.getElementById('close-resume-btn');
+    const closeBottomBtn = document.getElementById('close-resume-bottom-btn');
+
+    if (openBtn && modal) {
+      openBtn.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      });
+    }
+
+    const closeModal = () => {
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    };
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (closeBottomBtn) closeBottomBtn.addEventListener('click', closeModal);
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+    }
+
+    // Interactive Form Feedback
+    function handleSubmitForm() {
+      const btn = document.getElementById('submit-btn');
+      const feedback = document.getElementById('form-success');
+      if (btn && feedback) {
+        btn.disabled = true;
+        btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span><span>Encrypting...</span>';
+        setTimeout(() => {
+          btn.innerHTML = '<span>Message Sent</span><span class="material-symbols-outlined text-[18px]">check</span>';
+          feedback.classList.remove('hidden');
+          document.getElementById('contact-form').reset();
+        }, 800);
+      }
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] mt-margin"><div class="max-w-7xl mx-auto px-6 lg:px-12 py-space-xl flex flex-col gap-space-lg"><div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg items-start"><div class="md:col-span-6 flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm"><img alt="CS Portfolio Engineering Monogram" class="h-6 w-auto object-contain opacity-80" src="https://lh3.googleusercontent.com/aida/ALJJyrDirXsoseeamOCiBPtzycI2G5ptbX8lHoLPtVboXuyee0dNe3p5Ho_T5uBISycG3YQOCg8NJI9_4fEDllmsDn0L9As8OUyIJIrl76D3T9lYHMy67CHMHitkNFz1JiZPEy73VdTOLG8Z3eZC6HEhx1WWugqtmt8NO2G2BPZZN-hjp9E-d6iCKC3Ua-U_ZKXgR6PornV9RMPp_bKqHvjb4f0LtP_Vz2rJ7xb8gatEfyxL"/><span class="font-headline-sm text-headline-sm text-on-surface">Alex Vance</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-lg leading-relaxed">Handcrafted with semantic HTML, Tailwind, Alpine.js / Vanilla JS. Engineered for a zero-bloat runtime, WCAG AAA accessibility conformance, and sub-40KB total transfer footprint.</p></div><div class="md:col-span-6 flex flex-col md:items-end gap-space-sm"><div class="flex flex-wrap items-center gap-space-md"><a class="font-tech-badge text-tech-badge text-on-surface-variant hover:text-primary transition-colors" data-path="about-and-experience" href="#">Résumé</a><a class="font-tech-badge text-tech-badge text-on-surface-variant hover:text-primary transition-colors" href="https://github.com" rel="noreferrer" target="_blank">GitHub</a><a class="font-tech-badge text-tech-badge text-on-surface-variant hover:text-primary transition-colors" href="https://linkedin.com" rel="noreferrer" target="_blank">LinkedIn</a><a class="font-tech-badge text-tech-badge text-on-surface-variant hover:text-primary transition-colors" data-path="contact" href="#">Email</a><a class="font-tech-badge text-tech-badge text-on-surface-variant hover:text-primary transition-colors" href="#">PGP Key</a></div><div class="flex items-center gap-space-md pt-space-xs"><div class="flex items-center gap-1.5 px-2 py-0.5 rounded-lg bg-surface-container-highest"><span class="material-symbols-outlined text-[14px] text-on-surface-variant">terminal</span><span class="font-label-mono text-label-mono text-on-surface-variant">#c89f2a4 (main • 2h ago)</span></div><div class="flex items-center gap-1.5 px-2 py-0.5 rounded-lg bg-surface-container-highest"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span class="font-label-mono text-label-mono text-tertiary">Ping: 18ms</span></div></div></div></div><div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm pt-space-md font-label-mono text-label-mono text-outline"><p>© 2025 Alex Vance. Rigor, performance, and clear systems architecture.</p><p class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px]">verified</span>All systems nominal</p></div></div></footer></body></html>
