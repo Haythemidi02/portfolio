@@ -1,1 +1,4 @@
 *.zip
+
+# Original preview checkout has its own Git history. Deploy netlify-ready instead.
+/portfolio-site/
